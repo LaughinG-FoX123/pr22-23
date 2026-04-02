@@ -1,9 +1,9 @@
 
 
-function Card() {
+function Card({characters}) {
     return (
         <div className="card">
-            <div className="image" style={{backgroundImage: "url('')"}}></div>
+            <div className="image" style={{backgroundImage: 'url(`${characters.image}`)'}}></div>
             <div className="info">
                 <h2>Hermione Granger</h2>
                 <p>Actor: Emma Watson</p>
