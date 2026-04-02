@@ -1,0 +1,118 @@
+:root {
+    font-size: 16px;
+    --bg-gradient: linear-gradient(92.33deg, #196B78 0.12%, #138496 100%);
+    --black: #000000;
+    --h6-grey: #818182;
+    --placeholder-gray: #ABB5BE;
+    --body-bg: #F5F5F5;
+    --card-text: #152536;
+    --header-bottom: #DEE2E6;
+}
+
+body {
+    background-color: var(--body-bg);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+header {
+  width: 100%;
+  border-bottom: 1px solid #DEE2E6;
+
+  div {
+    margin: 64px auto 40px auto;
+    width: 688px;
+    
+    h1 {
+      font-size: 4rem;
+      color: var(--black);
+    }
+
+    p {
+      font-size: 1.3rem;
+      color: var(--black);
+    }
+
+    div {
+      display: flex;
+      justify-content: space-between;
+      bottom: 0;
+      width: 100%;
+      margin-top: 48px;
+
+      h6 {
+        font-size: 1rem;
+        color: var(--h6-grey);
+      }
+
+
+
+      .inputs {
+        border: 1px solid #CED4DA;
+        border-radius: 3px;
+        padding: 8px 17px;
+        font-size: 1rem;
+        color: var(--h6-grey);
+        margin-top: 3px;
+      }
+
+      input[type="text"] {
+        width: 452px;
+        height: 38px;
+      }
+
+      select {
+        width: 216px;
+        height: 38px;
+      }
+
+    }
+  }
+}
+
+
+
+
+
+main {
+  margin: 40px auto 0 auto;
+  display: flex;
+  width: 688px;
+  gap: 20px;
+  flex-wrap: wrap;
+
+  div.card {
+    width: 334px;
+    border: 1px solid #DEE2E6;
+    background-color: #fff;
+    border-radius: 3px;
+
+
+    div.image {
+      background-image: url("C:\Users\Student\Desktop\1111HarryPotter\Harry-Potter\public\Rectangle 37.png");
+      width: 100%;
+      height: 192px;
+    }
+
+    div.info {
+      margin: 24px 25px 24px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+
+      h5 {
+        font-size: 1.25rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+    }
+  }
+  
+}
