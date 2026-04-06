@@ -3,14 +3,14 @@
 function Card({characters}) {
     return (
         <div className="card">
-            <div className="image" style={{backgroundImage: 'url(`${characters.image}`)'}}></div>
+            <div className="image" style={{backgroundImage: 'url(`${characters.img}`)'}}></div>
             <div className="info">
-                <h2>Hermione Granger</h2>
-                <p>Actor: Emma Watson</p>
-                <p>Gender: female</p>
-                <p>House: Gryffindor</p>
-                <p>Wand core: dragon heartstring</p>
-                <p>Alive: yes</p>
+                <h2>{characters.name}</h2>
+                <p>Actor: {characters.actor}</p>
+                <p>Gender: {characters.gender}</p>
+                <p>House: {characters.house}</p>
+                <p>Wand core: {characters.wand}</p>
+                <p>Alive: {characters.alive}</p>
             </div>
         </div>
     )

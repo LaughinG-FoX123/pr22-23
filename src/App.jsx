@@ -4,26 +4,37 @@ import './App.css'
 
 function App() {
 
+  const [school, setSchool] = useState('Гриффиндор')
   const [characters, setCharacters] = useState([])
   const [isLoading, setIsLoading ]= useState(false)
   const [inputText, setInputText] = useState()
 
   useEffect(() => {
     fetchPotter()
-  }, [inputText])
+  }, [inputText, school])
 
   const fetchPotter = async () => {
     
     let url = 'http://localhost:3000/api/characters'
+    if(inputText) {
+      url += "?search=" + inputText
+    }
+    console.log(url);
     
+    setIsLoading(true)
 
     const responce = await fetch(url)
-    const data = await responce.json()
+    const data = await responce.json();
+    console.log(data);
+    
 
-    if( data.success) {
+    if( data) {
       setCharacters(data)
+      console.log(data)
       setIsLoading(false)
     }
+
+    console.log(characters)
   }
 
   return (
@@ -45,11 +56,11 @@ function App() {
             </span>
             <span>
               <h6>School</h6>
-              <select name="" id="" placeholder='Choose one' className='inputs'>
-                <option value="Гриффиндор">Гриффиндор</option>
-                <option value="Когтевран">Когтевран</option>
-                <option value="Пуффендуй">Пуффендуй</option>
-                <option value="Слизерин">Слизерин</option>
+              <select value={school} onInput={(e) => {setSchool(e.target.value)}} placeholder='Choose one' className='inputs'>
+                <option>Гриффиндор</option>
+                <option>Когтевран</option>
+                <option>Пуффендуй</option>
+                <option>Слизерин</option>
               </select>
             </span>
           </div>
@@ -57,9 +68,7 @@ function App() {
       </header>
 
       <main>
-        { !isLoading ? <Card characters={characters}/> : <> Загрузка... </>}
-        { !isLoading ? <Card characters={characters}/> : <> Загрузка... </>}
-        { !isLoading ? <Card characters={characters}/> : <> Загрузка... </>}
+        { !isLoading ? <Card characters={characters[0]}/> : <> Загрузка... </>}
       </main>
       
     </>
