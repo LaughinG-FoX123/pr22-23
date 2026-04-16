@@ -1,16 +1,18 @@
 
 
-function Card({characters}) {
+function Card({character}) {
     return (
         <div className="card">
-            <div className="image" style={{backgroundImage: 'url(`${characters.img}`)'}}></div>
+            <div className="image">
+                <img src={character.img} alt="" />
+            </div>
             <div className="info">
-                <h2>{characters.name}</h2>
-                <p>Actor: {characters.actor}</p>
-                <p>Gender: {characters.gender}</p>
-                <p>House: {characters.house}</p>
-                <p>Wand core: {characters.wand}</p>
-                <p>Alive: {characters.alive}</p>
+                <h2>{character?.name}</h2>
+                <p>Actor: {character?.actor}</p>
+                <p>Gender: {character?.gender}</p>
+                <p>House: {character?.house}</p>
+                <p>Wand core: {character?.wand}</p>
+                <p>Alive: {character?.alive}</p>
             </div>
         </div>
     )

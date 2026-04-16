@@ -6,6 +6,7 @@ function App() {
 
   const [school, setSchool] = useState('Гриффиндор')
   const [characters, setCharacters] = useState([])
+  const [character, setCharacter] = useState()
   const [isLoading, setIsLoading ]= useState(false)
   const [inputText, setInputText] = useState()
 
@@ -15,17 +16,19 @@ function App() {
 
   const fetchPotter = async () => {
     
-    let url = 'http://localhost:3000/api/characters'
+    let url = 'http://localhost:3000/api/characters?house=' + school;
+
     if(inputText) {
-      url += "?search=" + inputText
+      url += "&search=" + inputText
     }
+
     console.log(url);
     
     setIsLoading(true)
 
     const responce = await fetch(url)
     const data = await responce.json();
-    console.log(data);
+    console.log('data->',data);
     
 
     if( data) {
@@ -34,7 +37,12 @@ function App() {
       setIsLoading(false)
     }
 
+    console.log(character)
+
+
+
     console.log(characters)
+    console.log(character)
   }
 
   return (
@@ -68,7 +76,9 @@ function App() {
       </header>
 
       <main>
-        { !isLoading ? <Card characters={characters[0]}/> : <> Загрузка... </>}
+        { !isLoading && characters ? (
+          characters.map((character)=><Card character={character} />)
+          ) : <> Загрузка... </>}
       </main>
       
     </>
