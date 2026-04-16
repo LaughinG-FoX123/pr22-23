@@ -12,7 +12,7 @@ function Card({character}) {
                 <p>Gender: {character?.gender}</p>
                 <p>House: {character?.house}</p>
                 <p>Wand core: {character?.wand}</p>
-                <p>Alive: {character?.alive}</p>
+                <p>Alive: {character?.alive ? "жив" : "мёртв"}</p>
             </div>
         </div>
     )
